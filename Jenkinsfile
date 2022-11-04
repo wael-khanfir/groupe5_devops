@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment{
+        DOCKERHUB_CREDENTIALS = credential('hassene1212-Dockerhub')
+    }
     stages{
         stage('git checkout'){
             steps{
@@ -26,7 +29,23 @@ pipeline {
                    steps {
                      sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
                    }
-                 }
+          }
+          stage('Login') {
+                    steps {
+                            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+
+                    }
+          }
+          stage('pushing to dockerhub') {
+                       steps {
+
+                        sh'docker push hassene1212/devopsimage'
+
+
+                         }
+                    }
+
+
 
 
 
