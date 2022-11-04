@@ -21,6 +21,18 @@ pipeline {
                     sh 'mvn clean install'
                }
          }
+         stage('maven Build'){
+                steps{
+                      sh 'mvn clean install'
+                }
+         }
+          stage('Docker') {
+                 steps {
+
+                       sh 'docker-compose up --detach'
+
+                 }
+           }
 
     }
 
