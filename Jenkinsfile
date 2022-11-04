@@ -11,12 +11,14 @@ pipeline {
                  sh 'mvn test'
               }
          }
-         stage('integration Testing'){
-              steps{
-                   sh 'mvn verify -DskipUnitTests'
-              }
-         }
          
+         stage('Maven Build'){
+                steps{
+                      mvn 'clean verify'
+                      mvn 'clean jacoco:prepare-agent'
+                      mvn 'clean jacoco:report'
+                }
+         }
     }
 
 }
