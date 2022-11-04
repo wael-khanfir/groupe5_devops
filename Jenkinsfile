@@ -22,15 +22,11 @@ pipeline {
                 }
 
          }
-         stage("sonar"){
-            steps{
-                withSonarQubeEnv(credentialsId: 'sonar-api') {
-                     // some block
-                }
-
-            }
-
-         }
+          stage('Sonarqube') {
+                   steps {
+                     sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+                   }
+                 }
 
 
 
