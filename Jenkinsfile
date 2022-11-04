@@ -16,19 +16,20 @@ pipeline {
                    sh 'mvn verify -DskipUnitTests'
               }
          }
-         stage('maven Build'){
-               steps{
-                    sh 'mvn clean install'
-               }
+         stage("Build & Tests") {
+                steps {
+                    sh 'mvn -Dmaven.test.failure.ignore=true clean install'
+                }
+                post {
+                    success {
+                        junit 'target/surefire-reports/**/*.xml'
+                    }
+                }
+
          }
 
-          stage('Docker') {
-                 steps {
-
-                       sh 'docker-compose up --detach'
-
-                 }
-           }
+        }
+          
 
     }
 
