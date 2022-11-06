@@ -23,6 +23,16 @@ pipeline {
                 }
 
          }
+         stage('Sonarqube') {
+                            steps {
+                              sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+                            }
+                   }
+         stage('Nexus') {
+                   steps {
+                     sh 'mvn deploy -Dmaven.test.skip=true -e'
+                   }
+                 }
 
 
 
