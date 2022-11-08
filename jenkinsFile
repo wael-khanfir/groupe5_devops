@@ -5,7 +5,7 @@ pipeline {
         stage ("Git Checkout"){
             steps{
             git branch: 'main', 
-            branch: 'testeya' , url: 'https://github.com/wael-khanfir/groupe5_devops.git'
+            branch: 'produit' , url: 'https://github.com/wael-khanfir/groupe5_devops.git'
             }
         
         }
