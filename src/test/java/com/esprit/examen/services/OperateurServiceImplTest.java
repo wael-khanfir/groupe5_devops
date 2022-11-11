@@ -28,7 +28,7 @@ class OperateurControllerTest {
     @InjectMocks
     OperateurServiceImpl operateurService;
 
-    Operateur operateur1 = new Operateur(123,"Omar","CHERIF","omar123",null);
+    Operateur operateur1 = new Operateur(123,"Omar","CHERIF","omar",null);
 
     Long getId()
     {
