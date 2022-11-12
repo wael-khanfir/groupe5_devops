@@ -30,5 +30,11 @@ pipeline {
                 sh 'mvn -Dmaven.test.skip=true deploy'
             }
         }
+                     stage('docker compose up') {
+            steps {
+                sh 'docker-compose up -d'
+            }
+        }
+        
     }
 }
