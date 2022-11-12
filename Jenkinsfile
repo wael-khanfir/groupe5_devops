@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         TAG = '3.0'
-        REGISTRY=aymenouhiba/devops
+        REGISTRY='aymenouhiba/devops'
     }
     
 
