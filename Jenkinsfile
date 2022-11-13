@@ -33,19 +33,20 @@ pipeline {
         //              sh 'mvn deploy'
         //            }
         //          }
-         stage("Push to DockerHub") { 
-                    steps { 
-                      script {
-                    
-                        withCredentials([string(credentialsId: 'DockerId', variable: 'Docker')]) {
-                          sh 'docker login -u hassene1212 -p ${Docker}'
-                          sh 'docker image push hassene1212/devopsimage:$BUILD_NUMBER'
-                }
-            } 
-            }
-            
-        }
+           stage('Login') {
+                    steps {
+                            sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
+                    }
+          }
+          stage('pushing to dockerhub') {
+                       steps {
+
+                        sh'docker push hassene1212/devopsimage'
+
+
+                         }
+                    }
 
 
 
