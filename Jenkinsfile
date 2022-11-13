@@ -30,7 +30,7 @@ pipeline {
         //            }
          stage('Nexus') {
                    steps {
-                     sh 'mvn deploy '
+                     sh 'mvn deploy'
                    }
                  }
          stage("Push to DockerHub") { 
