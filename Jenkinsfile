@@ -7,30 +7,30 @@ pipeline {
                 git branch: 'hassentest', url: 'https://github.com/wael-khanfir/groupe5_devops.git'
             }
         }
-         stage('Unit Testing'){
-              steps{
-                 sh 'mvn test'
-              }
-         }
-         stage('integration Testing'){
-              steps{
-                   sh 'mvn verify -DskipUnitTests'
-              }
-         }
-         stage("Build & Tests") {
-                steps {
-                    sh 'mvn -Dmaven.test.failure.ignore=true clean install'
-                }
+        //  stage('Unit Testing'){
+        //       steps{
+        //          sh 'mvn test'
+        //       }
+        //  }
+        //  stage('integration Testing'){
+        //       steps{
+        //            sh 'mvn verify -DskipUnitTests'
+        //       }
+        //  }
+        //  stage("Build & Tests") {
+        //         steps {
+        //             sh 'mvn -Dmaven.test.failure.ignore=true clean install'
+        //         }
 
-         }
-         stage('Sonarqube') {
-                            steps {
-                              sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
-                            }
-                   }
+        //  }
+        //  stage('Sonarqube') {
+        //                     steps {
+        //                       sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+        //                     }
+        //            }
          stage('Nexus') {
                    steps {
-                     sh 'mvn deploy -Dmaven.test.skip=true -e'
+                     sh 'mvn deploy '
                    }
                  }
          stage("Push to DockerHub") { 
