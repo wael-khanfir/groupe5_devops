@@ -28,11 +28,11 @@ pipeline {
         //                       sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
         //                     }
         //            }
-         stage('Nexus') {
-                   steps {
-                     sh 'mvn deploy'
-                   }
-                 }
+        //  stage('Nexus') {
+        //            steps {
+        //              sh 'mvn deploy'
+        //            }
+        //          }
          stage("Push to DockerHub") { 
                     steps { 
                       script {
