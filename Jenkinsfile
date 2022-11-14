@@ -46,7 +46,7 @@ pipeline {
        
         stage('pushing Docker Image') {  
             steps{                     
-	            sh'sudo docker push hassene1212/devopsimage'     
+	            sh'docker push hassene1212/devopsimage'     
 	            echo 'push Image Completed'                
              }           
         } 
