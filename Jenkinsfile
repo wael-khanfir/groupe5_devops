@@ -83,7 +83,7 @@ pipeline {
                         sh 'docker login -u hassene1212 -p 22550887h'
                         sh 'docker push ${REGISTRY}:${TAG}'
                         sh 'docker logout'
-                    }
+                    
                 }
             }
         }
