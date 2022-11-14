@@ -44,26 +44,14 @@ pipeline {
         //            }
         //          }
         
-        stage("Build our Image") {
-          steps {
-          
-              sh 'docker build -t hassene1212/devopsimage:$BUILD_NUMBER .'
-              
-             }
-        }
        
-        stage("Push to DockerHub") { 
-            steps { 
-                script {
-                    
-                    withCredentials([string(credentialsId: 'DockerId', variable: 'Docker')]) {
-                        sh 'docker login -u hassene1212 -p ${22550887h}'
-                        sh 'docker image push hassene1212/devopsimage:$BUILD_NUMBER'
-                }
-            } 
-            }
-            
-        }
+       
+        stage('Build Docker Image') {  
+            steps{                     
+	            sh 'sudo docker build -t <dockerhubusername>/<dockerhubreponame>:$BUILD_NUMBER .'     
+	            echo 'Build Image Completed'                
+             }           
+        } 
         
 
 
