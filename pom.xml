@@ -89,7 +89,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
 <executions>
 <execution>
-<id>default-deploy</id>
+<id>deploymentRepo</id>
 <phase>deploy</phase>
 <goals>
 <goal>deploy</goal>
