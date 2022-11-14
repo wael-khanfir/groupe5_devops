@@ -1,4 +1,7 @@
-FROM centos:7
+FROM maven:3.8.2-jdk-8
 
-RUN for user in frank; do useradd $user; echo"1234" | passwd $usr --stdin; done
-run yum update && yum install mysql -yum
+WORKDIR /spring-app
+COPY . .
+RUN mvn clean install -Dmaven.test.skip
+
+CMD mvn spring-boot:run
