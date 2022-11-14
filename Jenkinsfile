@@ -44,10 +44,10 @@ pipeline {
         
        
        
-        stage('Build Docker Image') {  
+        stage('pushing Docker Image') {  
             steps{                     
-	            sh 'sudo docker build -t hassene1212/devopsimage:$BUILD_NUMBER .'     
-	            echo 'Build Image Completed'                
+	            sh'docker push hassene1212/devopsimage'     
+	            echo 'push Image Completed'                
              }           
         } 
         
