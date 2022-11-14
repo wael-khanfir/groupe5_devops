@@ -30,7 +30,7 @@ pipeline {
         //         echo "Testing Project"
         //         sh 'mvn compile validate test'
         //     }
-        }
+        // }
         
         //  stage('Sonarqube') {
         //                     steps {
