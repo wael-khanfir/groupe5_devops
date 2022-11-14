@@ -49,27 +49,34 @@ pipeline {
        
        
       
-        stage('build docker image') {
-            steps {
-                script {
-                    echo "Docker build image"
-                    dockerImage = docker.build("${REGISTRY}:${TAG}")
-                    //  sh 'docker build -t tpachatproject -f Dockerfile .'
-                }
-            }
-        }
-        stage('push docker hub') {
-            steps {
-                script {
-                    echo "Docker push"
-                    // withCredentials([string(credentialsId: 'hassene1212-Dockerhub', variable: 'dockerhub')]) {
-                        sh 'docker login -u hassene1212 -p 22550887h'
-                        sh 'docker push ${REGISTRY}:${TAG}'
+        // stage('build docker image') {
+        //     steps {
+        //         script {
+        //             echo "Docker build image"
+        //             dockerImage = docker.build("${REGISTRY}:${TAG}")
+        //             //  sh 'docker build -t tpachatproject -f Dockerfile .'
+        //         }
+        //     }
+        // }
+        // stage('push docker hub') {
+        //     steps {
+        //         script {
+        //             echo "Docker push"
+        //             // withCredentials([string(credentialsId: 'hassene1212-Dockerhub', variable: 'dockerhub')]) {
+        //                 sh 'docker login -u hassene1212 -p 22550887h'
+        //                 sh 'docker push ${REGISTRY}:${TAG}'
                         
                     
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
+        stage("Docker-Compose") {
+          steps {
+              sh 'docker-compose up -d'
+             }
+       
+       
+       } 
 
 
         
