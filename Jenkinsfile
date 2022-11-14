@@ -52,7 +52,7 @@ pipeline {
         } 
         stage('Push Docker Image') {  
             steps{   
-                withDockerRegistry([credentialsId: "hassene1212-Dockerhub" ,url: ""])                  
+                withDockerRegistry(credentialsId:"hassene1212-Dockerhub" ,url: "")                  
 	            sh'docker push hassene1212/devopsimage'     
 	            echo 'pushing Image Completed'                
              }           
