@@ -50,9 +50,9 @@ pipeline {
               sh 'docker build -t hassene1212/devopsimage:$BUILD_NUMBER .'
               
              }
-       }
+        }
        
-       stage("Push to DockerHub") { 
+        stage("Push to DockerHub") { 
             steps { 
                 script {
                     
