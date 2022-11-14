@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
-EXPOSE 8083
-ADD target/tpAchatProject-1.0.jar tpAchatProject-1.0.jar
-ENTRYPOINT ["java","-jar","/tpAchatProject-1.0.jar"]
+FROM centos:7
+
+RUN for user in frank;do useradd$user,echo"1234" | passwd $usr --stding, done
+run yum update && yum install mysql -yum
