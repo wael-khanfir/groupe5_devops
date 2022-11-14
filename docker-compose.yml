@@ -17,7 +17,7 @@ services:
   spri:
     depends_on:
       - mysqldb
-    image: hassene1212/devops
+    image: hassene1212/devopsimage
     restart: on-failure
     ports:
       - "8089:8089"
