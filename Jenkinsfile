@@ -44,12 +44,17 @@ pipeline {
         
        
        
-        stage('Build Docker Image') {  
-            steps{                     
-	            sh'docker build -t hassene1212/devopsimage .'     
-	            echo 'Build Image Completed'                
-             }           
-        } 
+        // stage('Build Docker Image') {  
+        //     steps{                     
+	    //         sh'docker build -t hassene1212/devopsimage .'     
+	    //         echo 'Build Image Completed'                
+        //      }           
+        // } 
+        stage('login dockerhub') {
+                                        steps {
+                                      sh 'echo dckr_pat_-SnwrdC_ELsL6it2JT6cgIcAlrs | docker login -u hassene1212 --password-stdin'
+                                            }
+		  }
         stage('Push Docker Image') {  
             steps{   
                 withDockerRegistry(credentialsId:"hassene1212-Dockerhub" ,url: "")                  
