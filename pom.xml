@@ -9,10 +9,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 <version>2.5.3</version>
 <relativePath /> <!-- lookup parent from repository  -->
 </parent>
-<groupId>com.esprit.examen</groupId>
-	<artifactId>tpAchatProject</artifactId>
-	<version>1.2</version>
-	<name>tpAchatProject</name>
+<groupId>tn.esprit.rh</groupId>
+<artifactId>achat</artifactId>
+<version>1.0</version>
+<name>achat</name>
 <description>Projet pour le module DevOps</description>
 <properties>
 <java.version>1.8</java.version>
@@ -89,7 +89,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
 <executions>
 <execution>
-<id>deploymentRepo</id>
+<id>default-deploy</id>
 <phase>deploy</phase>
 <goals>
 <goal>deploy</goal>
