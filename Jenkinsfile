@@ -46,14 +46,14 @@ pipeline {
        
         stage('Build Docker Image') {  
             steps{                     
-	            sh'docker build -t hassene1212/devopsimage:"" BUILD_ID"" .'     
+	            sh'docker build -t hassene1212/devopsimage .'     
 	            echo 'Build Image Completed'                
              }           
         } 
         stage('Push Docker Image') {  
             steps{   
                 withDockerRegistry([credentialsId: "hassene1212-Dockerhub" ,url: ""])                  
-	            sh'docker push hassene1212/devopsimage:"" BUILD_ID""'     
+	            sh'docker push hassene1212/devopsimage'     
 	            echo 'pushing Image Completed'                
              }           
         } 
