@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        TAG = '3.0'
-        REGISTRY='hassene1212/devops2'
+        TAG = '4.0'
+        REGISTRY='hassene1212/devops'
     }
     
     
