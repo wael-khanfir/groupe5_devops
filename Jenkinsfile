@@ -84,6 +84,11 @@ pipeline {
                     sh 'docker-compose up -d'
                                  }
                            }
+		stage('Email') {
+            steps {
+                mail bcc: '', body: 'It\'s jenkins ,Your job got built successfully..', cc: '', from: '', replyTo: '', subject: 'Jenkins Job', to: 'mariem.souissi@esprit.tn'
+            }
+        }
           }
     }
 }
