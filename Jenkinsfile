@@ -79,7 +79,7 @@ pipeline {
             steps {
                 script {
                     echo "Docker push"
-                    withCredentials([string(credentialsId: 'hassene1212-Dockerhub', variable: 'dockerhub')]) {
+                    // withCredentials([string(credentialsId: 'hassene1212-Dockerhub', variable: 'dockerhub')]) {
                         sh 'docker login -u hassene1212 -p 22550887h'
                         sh 'docker push ${REGISTRY}:${TAG}'
                         sh 'docker logout'
