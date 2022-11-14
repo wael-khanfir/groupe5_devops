@@ -35,16 +35,16 @@ pipeline {
             }
         }
         
-        //  stage('Sonarqube') {
-        //                     steps {
-        //                       sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
-        //                     }
-        //            }
-        //  stage('Nexus') {
-        //            steps {
-        //              sh 'mvn -Dmaven.test.skip=true deploy'
-        //            }
-        //          }
+         stage('Sonarqube') {
+                            steps {
+                              sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+                            }
+                   }
+         stage('Nexus') {
+                   steps {
+                     sh 'mvn -Dmaven.test.skip=true deploy'
+                   }
+                 }
         
        
        
