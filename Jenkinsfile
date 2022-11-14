@@ -40,11 +40,11 @@ pipeline {
         //                       sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
         //                     }
         //            }
-         stage('Nexus') {
-                   steps {
-                     sh 'mvn -Dmaven.test.skip=true deploy'
-                   }
-                 }
+        //  stage('Nexus') {
+        //            steps {
+        //              sh 'mvn -Dmaven.test.skip=true deploy'
+        //            }
+        //          }
         
        
        
