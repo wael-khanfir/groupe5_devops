@@ -2,6 +2,9 @@ pipeline {
     agent any
     
     
+    environment{
+        DOCKERHUB_CREDENTIALS = credential('hassene1212-Dockerhub')
+    }
     
 
     stages{
@@ -35,11 +38,32 @@ pipeline {
         //                       sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
         //                     }
         //            }
-         stage('Nexus') {
-                   steps {
-                     sh 'mvn deploy -Dmaven.test.skip=true -e'
-                   }
-                 }
+        //  stage('Nexus') {
+        //            steps {
+        //              sh 'mvn deploy -Dmaven.test.skip=true -e'
+        //            }
+        //          }
+        
+        stage("Build our Image") {
+          steps {
+          
+              sh 'docker build -t hassene1212/devopsimage:$BUILD_NUMBER .'
+              
+             }
+       }
+       
+       stage("Push to DockerHub") { 
+            steps { 
+                script {
+                    
+                    withCredentials([string(credentialsId: 'DockerId', variable: 'Docker')]) {
+                        sh 'docker login -u hassene1212 -p ${22550887h}'
+                        sh 'docker image push hassene1212/devopsimage:$BUILD_NUMBER'
+                }
+            } 
+            }
+            
+        }
         
 
 
