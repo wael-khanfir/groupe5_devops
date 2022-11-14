@@ -7,11 +7,11 @@ pipeline {
     
 
     stages{
-        stage('git checkout'){
-            steps{
-                git branch: 'hassentest', url: 'https://github.com/wael-khanfir/groupe5_devops.git'
-            }
-        }
+        // stage('git checkout'){
+        //     steps{
+        //         git branch: 'hassentest', url: 'https://github.com/wael-khanfir/groupe5_devops.git'
+        //     }
+        // }
 
         //  stage('Maven Clean') {
         //     steps {
@@ -42,13 +42,13 @@ pipeline {
         //              sh 'mvn deploy -Dmaven.test.skip=true -e'
         //            }
         //          }
-           stage('Login') {
+        stage('Login') {
                     steps {
                             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 
                     }
           }
-          stage('pushing to dockerhub') {
+        stage('pushing to dockerhub') {
                        steps {
 
                         sh'docker push hassene1212/devopsimage'
