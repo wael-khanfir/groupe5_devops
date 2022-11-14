@@ -35,29 +35,29 @@ pipeline {
             }
         }
         
-        //  stage('Sonarqube') {
-        //                     steps {
-        //                       sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
-        //                     }
-        //            }
-        //  stage('Nexus') {
-        //            steps {
-        //              sh 'mvn -Dmaven.test.skip=true deploy'
-        //            }
-        //          }
+         stage('Sonarqube') {
+                            steps {
+                              sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+                            }
+                   }
+         stage('Nexus') {
+                   steps {
+                     sh 'mvn -Dmaven.test.skip=true deploy'
+                   }
+                 }
         
        
        
       
-        // stage('build docker image') {
-        //     steps {
-        //         script {
-        //             echo "Docker build image"
-        //             dockerImage = docker.build("${REGISTRY}:${TAG}")
-        //             //  sh 'docker build -t tpachatproject -f Dockerfile .'
-        //         }
-        //     }
-        // }
+        stage('build docker image') {
+            steps {
+                script {
+                    echo "Docker build image"
+                    dockerImage = docker.build("${REGISTRY}:${TAG}")
+                    //  sh 'docker build -t tpachatproject -f Dockerfile .'
+                }
+            }
+        }
         // stage('push docker hub') {
         //     steps {
         //         script {
