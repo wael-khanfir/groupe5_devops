@@ -6,12 +6,12 @@ services:
     restart: unless-stopped
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=tpachato
-      - MYSQL_USER= omar
-      - MYSQL_PASSWORD= omar
+      - MYSQL_DATABASE=
+      - MYSQL_USER =root
+      - MYSQL_PASSWORD=
       - MYSQL_ROOT_HOST= '%'
     ports:
-      - '3306:3306'
+      - '3309:3309'
     volumes:
       - db:/var/lib/mysql
   spri:
@@ -35,4 +35,4 @@ services:
     tty: true
 
 volumes:
-  db
+  db:
